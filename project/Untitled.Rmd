@@ -1,0 +1,14 @@
+---
+title: "Untitled"
+author: "Chin-yu"
+date: "2023-11-02"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(dbplyr)
+df <- read.csv("spreadspoke.csv",header = TRUE)
+df1 <- read.csv("Book1.csv",header = TRUE)
+
+```
