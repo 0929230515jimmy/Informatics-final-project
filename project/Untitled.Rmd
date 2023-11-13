@@ -8,7 +8,44 @@ output: html_document
 ```{r}
 library(tidyverse)
 library(dbplyr)
-df <- read.csv("spreadspoke.csv",header = TRUE)
+df <- read.csv("spreadspoke_scores.csv",header = TRUE)
 df1 <- read.csv("Book1.csv",header = TRUE)
+df <- df %>%
+  left_join(df1, df, by = c("team_favorite_id"))%>%
+  filter(over_under_line != 'NaN')%>%
+  mutate(favorite = case_when(
+                    team_home == team ~ 'home',
+                    team_away == team ~ 'away',
+                    ))%>%
+  mutate(winner = case_when(score_home > score_away ~ 'home',
+                            score_home < score_away ~ 'away',))%>%
+  mutate(net_score = score_home - score_away)%>%
+  mutate(favorite_correct = case_when(favorite == winner ~ 'correct',
+                                      favorite != winner ~ 'wrong'))
 
 ```
+
+```{r}
+write.csv(df, "clean_data.csv")
+```
+
+```{r}
+df2 <- read.csv("NFL Filter.csv")
+df2 <- df2[-c(2),]
+```
+
+```{r}
+names(df2) <- df2[1,]
+df2 <- df2[-c(1),]
+```
+
+```{r}
+write.csv(df2, "d2.csv")
+
+
+```
+
+
+
+
+
