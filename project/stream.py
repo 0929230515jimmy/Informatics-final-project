@@ -42,9 +42,7 @@ st.dataframe(df_selection)
 # ----MAINPAGE ------
 
 plot1 = sns.countplot(data = df, x = 'O_win_3', color="skyblue", order=df['O_win_3'].value_counts().index)
-plot2 = sns.countplot(data = df, x = 'Wu_win_3', color="olive")
-plot3 = sns.countplot(data = df, x = 'O_win_5', color="gold")
-plot4 = sns.countplot(data = df, x = 'Wu_win_5', color="teal")
+
 
 st.pyplot(plot1.get_figure())
 
