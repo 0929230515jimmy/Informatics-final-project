@@ -43,10 +43,10 @@ st.dataframe(df_selection)
 # ----MAINPAGE ------
 
 fig, axs = plt.subplots(2, 2, figsize=(7, 7))
-a = sns.countplot(data = df, x = 'O_win_3', color="skyblue", ax=axs[0, 0])
-b =sns.countplot(data = df, x = 'Wu_win_3', color="olive", ax=axs[0, 1])
-c = sns.countplot(data = df, x = 'O_win_5', color="gold", ax=axs[1, 0])
-d = sns.countplot(data = df, x = 'Wu_win_5', color="teal", ax=axs[1, 1])
+a = sns.countplot(data = df, x = 'O_win_3', color="skyblue", ax=axs[0, 0], order=df['O_win_3'].value_counts().index)
+b =sns.countplot(data = df, x = 'Wu_win_3', color="olive", ax=axs[0, 1], order=df['Wu_win_3'].value_counts().index)
+c = sns.countplot(data = df, x = 'O_win_5', color="gold", ax=axs[1, 0], order=df['O_win_5'].value_counts().index)
+d = sns.countplot(data = df, x = 'Wu_win_5', color="teal", ax=axs[1, 1], order=df['Wu_win_5'].value_counts().index)
 
 st.pyplot(a.get_figure())  
 
