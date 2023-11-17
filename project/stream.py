@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import streamlit as st
+import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.set_page_config(page_title = 'betting dashboard',
@@ -41,9 +42,12 @@ st.dataframe(df_selection)
 
 # ----MAINPAGE ------
 
-plot = sns.countplot(data = df, x = 'O_win_3', color="skyblue", order=df['O_win_3'].value_counts().index)
+fig, axs = plt.subplots(2, 2, figsize=(7, 7))
+a = sns.countplot(data = df, x = 'O_win_3', color="skyblue", ax=axs[0, 0])
+b =sns.countplot(data = df, x = 'Wu_win_3', color="olive", ax=axs[0, 1])
+c = sns.countplot(data = df, x = 'O_win_5', color="gold", ax=axs[1, 0])
+d = sns.countplot(data = df, x = 'Wu_win_5', color="teal", ax=axs[1, 1])
 
-
-st.pyplot(plot.get_figure())  
+st.pyplot(a.get_figure())  
 
 
