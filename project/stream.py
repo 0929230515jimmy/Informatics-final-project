@@ -41,9 +41,9 @@ st.dataframe(df_selection)
 
 # ----MAINPAGE ------
 
-plot1 = sns.countplot(data = df, x = 'O_win_3', color="skyblue", order=df['O_win_3'].value_counts().index)
+plot = sns.countplot(data = df, x = 'O_win_3', color="skyblue", order=df['O_win_3'].value_counts().index)
 
 
-st.pyplot(plot1.get_figure())
+st.pyplot(plot.get_figure())  
 
 
