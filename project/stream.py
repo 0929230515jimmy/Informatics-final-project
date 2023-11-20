@@ -24,6 +24,8 @@ team2 = pd.read_excel('team2.xlsx')
 df = df.merge(team, on='Away team', how='left')
 df = df.merge(team2, on='Home team', how='left')
 
+df = df[["Home", "Away", "Year", "week", "Awayscore", "Homescore", "Spread", "O_win_3", "Wu_win_3", "O_win_5", "Wu_win_5"]]
+
 #  ------ SIDEBAR -----
 st.sidebar.header("Please Filter Here:")
 
