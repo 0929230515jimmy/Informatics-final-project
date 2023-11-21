@@ -86,26 +86,28 @@ for i in range (2566):
         W5_lose += 1
 W5_percentage = round((W5_win)/(W5_win+W5_lose),3)
 
+st.title("Percentage")
+
 left_column, middle_column, right_column, right_right_column = st.columns(4)
 
 with left_column:
-    st.subheader("Osbourn's win percentage/ filter3")
+    st.subheader("Osbourn's win percentage/ Filter3")
     st.subheader(O3_percentage)
 
 with middle_column:
-    st.subheader("Wu's win percentage/ filter3")
+    st.subheader("Wu's win percentage/ Filter3")
     st.subheader(W3_percentage)
 
 with right_column:
-    st.subheader("Osbourn's win percentage/ filter5")
+    st.subheader("Osbourn's win percentage/ Filter5")
     st.subheader(O5_percentage)
 
 with right_right_column:
-    st.subheader("Wu's win percentage/ filter5")
+    st.subheader("Wu's win percentage/ Filter5")
     st.subheader(W5_percentage)    
 
 #-----graph------
-
+st.title(":bar_chart: Graph")
 fig, axs = plt.subplots(2, 2, figsize=(10, 10))
 a = sns.countplot(data = df_selection, x = 'O_win_3', color="skyblue", ax=axs[0, 0], order=df['O_win_3'].value_counts().index)
 b = sns.countplot(data = df_selection, x = 'Wu_win_3', color="olive", ax=axs[0, 1], order=df['Wu_win_3'].value_counts().index)
