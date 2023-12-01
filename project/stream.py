@@ -32,17 +32,23 @@ st.sidebar.header("Please Filter Here:")
 year = st.sidebar.multiselect(
     "select the year:",
     options = df["Year"].unique(),
-    default= df["Year"].unique()
+    default = df["Year"].unique()
 )
 
 week = st.sidebar.multiselect(
     "select the week:",
     options = df["week"].unique(),
-    default= df["week"].unique()
+    default = df["week"].unique()
+)
+
+team = st.sidebar.multiselect(
+    "select the team:",
+    options = df["Home"].unique(),
+    default = df["Home"].unique()
 )
 
 df_selection = df.query(
-    "Year == @year & week == @week"
+    "Year == @year & week == @week & Home == @team" 
 )
 
 
