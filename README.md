@@ -10,4 +10,6 @@ WUit = 3.897 + 1.263DPPGHit – 0.994DPPGAit – 1.061DPPGVit + 0.741DPPGAVit
 
 The model that I imporved has a win percentage of 53.7%. With filter 3 mu win percentage is 0.597 and with filter 4 the win percentage is 0.623.
 
+The tools I used for this project is Pandas, Seaborn, and statsmodels.api. I used Pandas to modify my dataset, statsmodels.api to fit my model, and Seaborn to draw the graph that I want to show. 
+
 Link of my webapp: https://informatics-final-project-k9uzekqvtcmga9zamduder.streamlit.app/
