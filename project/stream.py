@@ -11,7 +11,7 @@ st.set_page_config(page_title = 'betting dashboard',
 )
 
 df = pd.read_excel(
-    io = 'io = 'https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/df.xlsx?raw=True',
+    io = 'https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/df.xlsx?raw=True',
     engine =  'openpyxl',
     sheet_name = 'Sheet1',
     skiprows = 0,
