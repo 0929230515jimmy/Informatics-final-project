@@ -18,8 +18,9 @@ df = pd.read_excel(
     usecols = 'C:H,J,AD:AG',
     nrows = 2566
 )
-team = pd.read_excel('team.xlsx')
-team2 = pd.read_excel('team2.xlsx')
+
+team = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/team.xlsx?raw=True')
+team2 = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/team2.xlsx?raw=True')
 
 df = df.merge(team, on='Away team', how='left')
 df = df.merge(team2, on='Home team', how='left')
