@@ -26,7 +26,7 @@ df = pd.read_excel(
 team = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/team.xlsx?raw=True')
 team2 = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/team2.xlsx?raw=True')
 
-current = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/2023data.xlsx?raw=True')
+current = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/current.xlsx')
 current = current[["Week", "Home Team", "Away Team", "Spread", "my_pick", "my_pick3", "my_pick5"]]
 
 df = df.merge(team, on='Away team', how='left')
