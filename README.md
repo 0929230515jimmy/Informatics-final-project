@@ -8,7 +8,7 @@ Osborne's model has a win rate of 51.2%. To fit the model better Osborne incorpo
 I revised Osbourn's model by adding more information into the model. In Osbourn's model he only used data from the current season to predict games in the current year. I implemented stats from the previous season to improve the model. In the new model, the variable points per game (DPPG) was considered which takes the previous year’s points per game and this year’s points per game. This calculation was performed for both the home (H) and visiting (V) teams (DPPGH, DPPGAH, DPPGV, DPPGAV). The net home points were regressed for each game of the season (W) on these four variables.
 WUit = 3.897 + 1.263DPPGHit – 0.994DPPGAit – 1.061DPPGVit + 0.741DPPGAVit   
 
-The model that I imporved has a win percentage of 53.7%. With filter 3 mu win percentage is 0.597 and with filter 4 the win percentage is 0.623.
+The model that I imporved has a win percentage of 53.7%. With filter 3 the win percentage is 0.597 and with filter 4 the win percentage is 0.623.
 
 In the top of my webapp, I put down all the games that is on week 14 and week 15 of this year. I made muy prediction. This is the main goal of this project, which is help me predict which side I should bet on. 
 
