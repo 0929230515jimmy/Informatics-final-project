@@ -10,8 +10,12 @@ st.set_page_config(page_title = 'betting dashboard',
                    layout = 'wide'
 )
 
+
+
+#-----import data------
+
 df = pd.read_excel(
-    io = 'https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/df.xlsx?raw=True',
+    io = 'df.xlsx',
     engine =  'openpyxl',
     sheet_name = 'Sheet1',
     skiprows = 0,
@@ -19,8 +23,11 @@ df = pd.read_excel(
     nrows = 2566
 )
 
-team = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/team.xlsx?raw=True')
-team2 = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/team2.xlsx?raw=True')
+team = pd.read_excel('team.xlsx')
+team2 = pd.read_excel('team2.xlsx')
+
+current = pd.read_excel('current.xlsx')
+current = current[["Week", "Home Team", "Away Team", "Spread", "my_pick", "my_pick3", "my_pick5"]]
 
 df = df.merge(team, on='Away team', how='left')
 df = df.merge(team2, on='Home team', how='left')
@@ -29,34 +36,25 @@ df = df[["Home", "Away", "Year", "week", "Awayscore", "Homescore", "Spread", "O_
 
 #  ------ SIDEBAR -----
 st.sidebar.header("Please Filter Here:")
-
-year = st.sidebar.multiselect(
-    "select the year:",
-    options = df["Year"].unique(),
-    default = df["Year"].unique()
-)
-
 week = st.sidebar.multiselect(
     "select the week:",
-    options = df["week"].unique(),
-    default = df["week"].unique()
+    options = current["Week"].unique(),
 )
 
 team = st.sidebar.multiselect(
-    "select the team:",
-    options = df["Home"].unique(),
-    default = df["Home"].unique()
+    "select the Home team:",
+    options = current["Home Team"].unique(),
 )
 
-df_selection = df.query(
-    "Year == @year & week == @week & Home == @team" 
-)
+df_selection = current.query("Week == @week and `Home Team` == @team")
 
 
-# ----MAINPAGE ------
-st.title(":bar_chart: Betting Dashboard")
+
+# ---- 2023data ------
+st.title(":bar_chart: 2023 week14 & week15 Pick")
 st.dataframe(df_selection)
 
+#----percentage----
 O3_win = 0
 O3_lose = 0
 for i in range (2566):
@@ -111,16 +109,19 @@ with right_column:
 
 with right_right_column:
     st.subheader("Wu's win percentage/ Filter5")
-    st.subheader(W5_percentage)    
-
+    st.subheader(W5_percentage)
 #-----graph------
 st.title(":bar_chart: Graph")
 fig, axs = plt.subplots(2, 2, figsize=(10, 10))
-a = sns.countplot(data = df_selection, x = 'O_win_3', color="skyblue", ax=axs[0, 0], order=df['O_win_3'].value_counts().index)
-b = sns.countplot(data = df_selection, x = 'Wu_win_3', color="olive", ax=axs[0, 1], order=df['Wu_win_3'].value_counts().index)
-c = sns.countplot(data = df_selection, x = 'O_win_5', color="gold", ax=axs[1, 0], order=df['O_win_5'].value_counts().index)
-d = sns.countplot(data = df_selection, x = 'Wu_win_5', color="teal", ax=axs[1, 1], order=df['Wu_win_5'].value_counts().index)
+a = sns.countplot(data = df, x = 'O_win_3', color="skyblue", ax=axs[0, 0], order=df['O_win_3'].value_counts().index)
+b = sns.countplot(data = df, x = 'Wu_win_3', color="olive", ax=axs[0, 1], order=df['Wu_win_3'].value_counts().index)
+c = sns.countplot(data = df, x = 'O_win_5', color="gold", ax=axs[1, 0], order=df['O_win_5'].value_counts().index)
+d = sns.countplot(data = df, x = 'Wu_win_5', color="teal", ax=axs[1, 1], order=df['Wu_win_5'].value_counts().index)
 
 st.pyplot(a.get_figure())  
+
+#-----2023data----
+st.title(":bar_chart: Betting Dashboard")
+st.dataframe(df)
 
 
