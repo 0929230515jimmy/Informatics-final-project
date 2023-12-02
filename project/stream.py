@@ -15,7 +15,7 @@ st.set_page_config(page_title = 'betting dashboard',
 #-----import data------
 
 df = pd.read_excel(
-    io = 'df.xlsx',
+    io = 'https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/df.xlsx?raw=True',
     engine =  'openpyxl',
     sheet_name = 'Sheet1',
     skiprows = 0,
@@ -23,10 +23,10 @@ df = pd.read_excel(
     nrows = 2566
 )
 
-team = pd.read_excel('team.xlsx')
-team2 = pd.read_excel('team2.xlsx')
+team = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/team.xlsx?raw=True')
+team2 = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/team2.xlsx?raw=True')
 
-current = pd.read_excel('current.xlsx')
+current = pd.read_excel('https://github.com/0929230515jimmy/Informatics-final-project/blob/main/project/2023%20data.xlsxraw=True')
 current = current[["Week", "Home Team", "Away Team", "Spread", "my_pick", "my_pick3", "my_pick5"]]
 
 df = df.merge(team, on='Away team', how='left')
@@ -46,7 +46,9 @@ team = st.sidebar.multiselect(
     options = current["Home Team"].unique(),
 )
 
-df_selection = current.query("Week == @week and `Home Team` == @team")
+df_selection = current.query(
+    "Week == @week and `Home Team` == @team"
+)
 
 
 
