@@ -10,6 +10,8 @@ WUit = 3.897 + 1.263DPPGHit – 0.994DPPGAit – 1.061DPPGVit + 0.741DPPGAVit
 
 The model that I imporved has a win percentage of 53.7%. With filter 3 mu win percentage is 0.597 and with filter 4 the win percentage is 0.623.
 
+In the top of my webapp, I put down all the games that is on week 14 and week 15 of this year. I made muy prediction. This is the main goal of this project, which is help me predict which side I should bet on. 
+
 The tools I used for this project is Pandas, Seaborn, and statsmodels.api. I used Pandas to modify my dataset, statsmodels.api to fit my model, and Seaborn to draw the graph that I want to show. 
 
 Link of my webapp: https://informatics-final-project-k9uzekqvtcmga9zamduder.streamlit.app/
